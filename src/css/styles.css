@@ -393,26 +393,235 @@ br.br-lg {
 }
 
 
+/* ── CTA pricing note ────────────────────────────────────────────────────── */
+
+.cta__pricing {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-faint);
+  margin-top: 1rem;
+  max-width: 380px;
+}
+
+
 /* ── Footer ──────────────────────────────────────────────────────────────── */
 
 .footer {
   border-top: 1px solid var(--border);
-  padding: 2rem 0;
+  padding: 3rem 0 2rem;
 }
 
-.footer__inner {
+.footer__top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+.footer__col {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .footer__brand {
-  font-size: 0.8125rem;
+  font-size: 0.9rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.footer__address {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--text-faint);
+  font-style: normal;
+}
+
+.footer__col-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.25rem;
+}
+
+.footer__link {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.footer__link:hover {
+  color: var(--text);
+}
+
+.footer__link--active {
+  color: var(--accent);
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-faint);
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .footer__year {
   font-size: 0.75rem;
   color: var(--text-faint);
+}
+
+.footer__stripe {
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+.footer__stripe-link {
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.footer__stripe-link:hover {
+  color: var(--text);
+}
+
+/* legacy inner used on policy pages */
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__legal-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+
+/* ── Prose pages (Privacy, Terms) ────────────────────────────────────────── */
+
+.prose-page {
+  padding-top: var(--nav-h);
+}
+
+.prose-container {
+  max-width: 720px;
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+}
+
+.prose-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.prose-meta {
+  font-size: 0.8125rem;
+  color: var(--text-faint);
+}
+
+.prose-body {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.prose-body p {
+  margin-bottom: 1.25rem;
+}
+
+.prose-body h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-body h3 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-body ul {
+  list-style: none;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.prose-body ul li {
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.prose-body ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--text-faint);
+}
+
+.prose-body a {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent-border);
+  padding-bottom: 1px;
+  transition: border-color 0.15s ease;
+}
+
+.prose-body a:hover {
+  border-color: var(--accent);
+}
+
+.prose-body address {
+  font-style: normal;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-top: 0.5rem;
+  line-height: 1.75;
 }
