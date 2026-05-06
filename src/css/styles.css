@@ -407,127 +407,98 @@ br.br-lg {
 /* ── Footer ──────────────────────────────────────────────────────────────── */
 
 .footer {
-  border-top: 1px solid var(--border);
-  background: var(--surface);
-  padding: 3.5rem 0 0;
+  border-top: 1px solid rgba(30, 39, 54, 0.8);
+  padding: 2.5rem 0;
 }
 
-.footer__top {
-  display: grid;
-  grid-template-columns: 1.75fr 1fr 1fr;
-  gap: 3rem;
-  padding-bottom: 3rem;
-}
-
-@media (max-width: 700px) {
-  .footer__top {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem 2.5rem;
-  }
-
-  .footer__col--brand {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer__top {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-}
-
-.footer__col {
+.footer__inner {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 1.5rem;
 }
 
-.footer__col--brand {
-  gap: 0;
-}
-
-.footer__brand {
-  display: block;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text);
-  margin-bottom: 0.4rem;
-}
-
-.footer__tagline {
-  font-size: 0.8125rem;
-  line-height: 1.55;
-  color: var(--text-muted);
-  margin-bottom: 1.25rem;
-}
-
-.footer__address {
-  font-size: 0.75rem;
-  line-height: 1.6;
-  color: var(--text-faint);
-  font-style: normal;
-  margin-bottom: 0.75rem;
-}
-
-.footer__emails {
+/* Single centered row of links */
+.footer__links {
   display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.footer__col-label {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  margin-bottom: 0.15rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1.5rem;
+  row-gap: 0.5rem;
 }
 
 .footer__link {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   transition: color 0.15s ease;
-  width: fit-content;
 }
 
 .footer__link:hover {
-  color: var(--text);
+  color: #d4d4d8;
 }
 
 .footer__link--active {
   color: var(--accent);
 }
 
-.footer__bottom {
+/* Brand mark + disclaimer row */
+.footer__brand-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding: 1.25rem 0;
-  border-top: 1px solid var(--border-faint);
+  gap: 0.75rem;
 }
 
-.footer__copy {
+@media (min-width: 640px) {
+  .footer__brand-row {
+    flex-direction: row;
+  }
+}
+
+.footer__brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer__icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.footer__brand-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #a1a1aa;
+}
+
+.footer__disclaimer {
   font-size: 0.75rem;
   color: var(--text-faint);
+  text-align: center;
+  max-width: 26rem;
 }
 
-.footer__stripe {
-  font-size: 0.75rem;
+.footer__disclaimer a {
   color: var(--text-faint);
-}
-
-.footer__stripe-link {
-  color: var(--text-muted);
   transition: color 0.15s ease;
 }
 
-.footer__stripe-link:hover {
-  color: var(--text);
+.footer__disclaimer a:hover {
+  color: var(--text-muted);
+}
+
+@media (min-width: 640px) {
+  .footer__disclaimer {
+    text-align: right;
+  }
 }
 
 
