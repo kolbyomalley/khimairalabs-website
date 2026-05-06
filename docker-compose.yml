@@ -1,0 +1,32 @@
+# ── Khimaira Labs website ─────────────────────────────────────────────────────
+# Static site served by nginx. The gateway project owns ports 80/443 and routes
+# khimairalabs.com traffic here via the shared "proxy" Docker network.
+# This container has no external port bindings — it is only reachable through
+# the gateway.
+
+# ── Image digests ─────────────────────────────────────────────────────────────
+# Update: docker pull nginx:1.27-alpine && docker inspect nginx:1.27-alpine --format '{{index .RepoDigests 0}}'
+x-images:
+  nginx: &img-nginx nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+
+services:
+  nginx:
+    image: *img-nginx
+    container_name: khimairalabs-nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./src:/usr/share/nginx/html:ro
+    networks:
+      proxy:
+        aliases:
+          - khimairalabs-nginx
+      internal:
+
+networks:
+  proxy:
+    external: true
+  internal:
+    name: khimairalabs_internal
+    driver: bridge
+    internal: true
